@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>HTML</title>
+
+</head>
+
+<body>
+  <p>Esta página web es una página HTML válida.</p>
+
+  <form action="/my-handling-form-page" method="post">
+    <ul>
+     <li>
+       <label for="texto">Nombre:</label>
+       <input type="text" id="texto" name="texto">
+     </li>
+     <li>
+        <label for="codigo">Codigo estudiante:</label>
+        <input type="text" id="codigo" name="codigo">
+      </li>
+     <li>
+       <label for="parcial1">Nota parcial1:</label>
+       <input type=number id="parcial1" name="parcial1" step=".01">
+     </li>
+     <li>
+        <label for="parcial2">Nota Parcial2:</label>
+        <input type=number id="parcial2" name="parcial2">
+      </li>
+      <li>
+        <label for="parcial3">Nota parcial 3:</label>
+        <input type=number id="parcial3" name="parcial3">
+      </li>
+    </ul>
+    <li class="button">
+        <button type="submit">Envíe su mensaje</button>
+      </li>
+   </form>
+   <h2>Texto ingresado :</h2>
+   <table> 
+    <tr>
+        <th>texto</th>
+    </tr>
+    <tr>
+      <td id="textomostrado"></td>
+      <td id="textocodigo"></td>
+  </tr>
+  <tr>
+    <th>Nota parcial1</th><td id="textomostrado1" step=".01"></td>
+    <th>Nota parcial2</th><td id="textomostrado2"></td>
+    <th>Nota parcial3</th><td id="textomostrado3"></td>
+</tr>
+    <tr>
+      <th>Nota Final</th> <td id="textonotafinal"></td>
+    </tr>
+    <tr>
+      <th>Nota Final</th> <td id="textopasar"></td>
+    </tr>
+   </table>
+   
+<script> 
+  var inputexto = document.getElementById("texto");
+  var inpucodigo = document.getElementById("codigo");
+  var inpuparcial1 = document.getElementById("parcial1");
+  var inpuparcial2 = document.getElementById("parcial2");
+  var inpuparcial3 = document.getElementById("parcial3");
+
+  var celdatexto = document.getElementById("textomostrado");
+  var celdacodigo = document.getElementById("textocodigo");
+  var celdatexto1 = document.getElementById("textomostrado1");
+  var celdatexto2 = document.getElementById("textomostrado2");
+  var celdatexto3 = document.getElementById("textomostrado3");
+  var celdafinal = document.getElementById("textonotafinal");
+  var divpasar = document.getElementById("textopasar");
+  
+ 
+
+  document.querySelector('form').addEventListener('submit',function(event){
+    
+    event.preventDefault(); celdatexto.innerHTML = inputexto.value; 
+    event.preventDefault(); celdacodigo.innerHTML = inpucodigo.value; 
+    event.preventDefault(); celdatexto1.innerHTML = inpuparcial1.value* 0.35 ; 
+    event.preventDefault(); celdatexto2.innerHTML = inpuparcial2.value* 0.35; 
+    event.preventDefault(); celdatexto3.innerHTML = inpuparcial3.value*0.3; 
+    event.preventDefault(); celdafinal.innerHTML = inpuparcial1.value* 0.35 + inpuparcial2.value* 0.35 + inpuparcial3.value*0.3;
+    event.preventDefault(); pasar.innerHTML = parseFloat(celdafinal.value);
+  if (pasar>=3.5){
+    divpasar.innerHTML="paso";
+    divpasar.style.color="green";
+  } else{
+    divepasar.innerHTML="No paso";
+    divpasar.style.color="red";
+  }; 
+  }); 
+  </script>
+</body>
+</html>

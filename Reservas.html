@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estado de Reservas</title>
+    <script>
+      function mostrarEstado() {
+        var asientos = [
+          [1, 0, 0, 1, 1, 0],
+          [1, 1, 0, 0, 1, 0]
+        ];
+        var libres = 0;
+        var reservados = 0;
+        var tabla = "<table>";
+        for (var i = 0; i < 2; i++) {
+          tabla += "<tr>";
+          for (var j = 0; j < 6; j++) {
+            if (asientos[i][j] == 0) {
+              tabla += "<td>L</td>";
+              libres++;
+            } else {
+              tabla += "<td>R</td>";
+              reservados++;
+            }
+          }
+          tabla += "</tr>";
+        }
+        tabla += "</table>";
+        document.getElementById("estado").innerHTML = tabla;
+        document.getElementById("libres").innerHTML = libres;
+        document.getElementById("reservados").innerHTML = reservados;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Estado de Reservas</h1>
+    <button onclick="mostrarEstado()">Mostrar Estado</button>
+    <br><br>
+    <div id="estado"></div>
+    <br>
+    <div>Asientos Libres: <span id="libres"></span></div>
+    <div>Asientos Reservados: <span id="reservados"></span></div>
+  </body>
+</html>
